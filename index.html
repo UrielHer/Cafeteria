@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+   	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   	<title>Cafetería</title> 
+</head>
+<body>
+	<!-- Mostrar bebidas -->
+	<section class="app">
+		<h2>Bebidas y Bocadillos</h2>
+		<div id="wea1">
+			<form>
+				<h3>Bebidas</h3>
+				<input type="radio" name="bebidas" :value="0" v-model="vue1.cafes">  Café
+				<br>
+				<input type="radio" name="bebidas" :value="1" v-model="vue1.cafes">  Jugo
+				<br>
+				<input type="radio" name="bebidas" :value="2" v-model="vue1.cafes">  limonada
+				<br>
+				<h3>Bocadillos</h3>
+				<input type="radio" name="bebidas" :value="3" v-model="vue1.cafes">  Galletas
+				<br>
+				<input type="radio" name="bebidas" :value="4" v-model="vue1.cafes">  pan
+				<br>
+				<input type="radio" name="bebidas" :value="5" v-model="vue1.cafes">  Churros
+				<br>
+			</form>
+		</div>
+		<div id="wea2">
+			<h3>Descripción</h3>
+			<transition name="component-fade" mode="out-in">
+				<component v-if="vue1.cafes == 0">
+					<div class="imgg" v-bind:class="{ imgg2: cafe1.Disponible=='No'}">
+						<ul>
+							<li v-for="(value, key) in cafe1">
+								{{ key }}: {{ value }}
+							</li>
+						</ul>
+					</div>
+				</component>
+			</transition>
+			<transition name="component-fade" mode="out-in">
+				<component v-if="vue1.cafes == 1">
+					<div class="imgg" v-bind:class="{ imgg2: cafe2.Disponible=='No'}">
+						<ul>
+							<li v-for="(value, key) in cafe2">
+								{{ key }}: {{ value }}
+							</li>
+						</ul>
+					</div>
+				</component>
+			</transition>
+			<transition name="component-fade" mode="out-in">
+				<component v-if="vue1.cafes == 2">
+					<div class="imgg" v-bind:class="{ imgg2: cafe3.Disponible=='No'}">
+						<ul>
+							<li v-for="(value, key) in cafe3">
+								{{ key }}: {{ value }}
+							</li>
+						</ul>
+					</div>
+				</component>
+			</transition>
+			<transition name="component-fade" mode="out-in">
+				<component v-if="vue1.cafes == 3">
+					<div class="imgg" v-bind:class="{ imgg2: cafe4.Disponible=='No'}">
+						<ul>
+							<li v-for="(value, key) in cafe4">
+								{{ key }}: {{ value }}
+							</li>
+						</ul>
+					</div>
+				</component>
+			</transition>
+			<transition name="component-fade" mode="out-in">
+				<component v-if="vue1.cafes == 4">
+					<div class="imgg" v-bind:class="{ imgg2: cafe5.Disponible=='No'}">
+						<ul>
+							<li v-for="(value, key) in cafe5">
+								{{ key }}: {{ value }}
+							</li>
+						</ul>
+					</div>
+				</component>
+			</transition>
+			<transition name="component-fade" mode="out-in">
+				<component v-if="vue1.cafes == 5">
+					<div class="imgg" v-bind:class="{ imgg2: cafe6.Disponible=='No'}">
+						<ul>
+							<li v-for="(value, key) in cafe6">
+								{{ key }}: {{ value }}
+							</li>
+						</ul>
+					</div>
+				</component>
+			</transition>
+		</div>
+	</section>
+
+	<!-- Filtrar precios -->
+	<section class="app2">
+		<p style=" background-color: white; border-radius: 50px;width: 25%; float: center;"><b>Buscar por su precio</b></p>
+		<p id="gga"></p>
+		<div>
+			<form>
+				<label>Ingresa el precio máximo: </label>
+				<input type="number" v-model="vue2.precior">
+			</form>
+		</div>
+		<div v-if="vue2.precior >= 0">
+			<transition name="slide-fade">
+				<div class="weass" v-if="cafe1.Precio<=vue2.precior" v-bind:class="{ weass2: cafe1.Disponible=='No'}">
+					<ul>
+						<li v-for="(value, key) in cafe1">
+							{{ key }}: {{ value }}
+						</li>
+					</ul>
+				</div>
+			</transition>
+			<transition name="slide-fade">
+				<div class="weass" v-if="cafe2.Precio<=vue2.precior" v-bind:class="{ weass2: cafe2.Disponible=='No'}">
+					<ul>
+						<li v-for="(value, key) in cafe2">
+							{{ key }}: {{ value }}
+						</li>
+					</ul>
+				</div>
+			</transition>
+			<transition name="slide-fade">
+				<div class="weass" v-if="cafe3.Precio<=vue2.precior" v-bind:class="{ weass2: cafe3.Disponible=='No'}">
+					<ul>
+						<li v-for="(value, key) in cafe3">
+							{{ key }}: {{ value }}
+						</li>
+					</ul>
+				</div>
+			</transition>
+			<transition name="slide-fade">
+				<div class="weass" v-if="cafe4.Precio<=vue2.precior" v-bind:class="{ weass2: cafe4.Disponible=='No'}">
+					<ul>
+						<li v-for="(value, key) in cafe4">
+							{{ key }}: {{ value }}
+						</li>
+					</ul>
+				</div>
+			</transition>
+			<transition name="slide-fade">
+				<div class="weass" v-if="cafe5.Precio<=vue2.precior" v-bind:class="{ weass2: cafe5.Disponible=='No'}">
+					<ul>
+						<li v-for="(value, key) in cafe5">
+							{{ key }}: {{ value }}
+						</li>
+					</ul>
+				</div>
+			</transition>
+			<transition name="slide-fade">
+				<div class="weass" v-if="cafe6.Precio<=vue2.precior" v-bind:class="{ weass2: cafe6.Disponible=='No'}">
+					<ul>
+						<li v-for="(value, key) in cafe6">
+							{{ key }}: {{ value }}
+						</li>
+					</ul>
+				</div>
+			</transition>
+		</div>
+		</section>
+
+	<!-- Hacer pedido -->
+	<section class="app3">
+		<div class="ped">
+			<h2> Añade tu compra</h2>
+			<form>
+				<label>Producto: </label>
+				<select  v-model="vue3.lista">
+	    			<option disabled :value="0">Seleccione</option>
+	    			<option :value="1"  v-bind:class="{ holi: cafe1.Disponible=='No'}">Café</option>
+	    			<option :value="2"  v-bind:class="{ holi: cafe2.Disponible=='No'}">jugo</option>
+	    			<option :value="3"  v-bind:class="{ holi: cafe3.Disponible=='No'}">limonada</option>
+	    			<option :value="4"  v-bind:class="{ holi: cafe4.Disponible=='No'}">Galletas</option>
+	    			<option :value="5"  v-bind:class="{ holi: cafe5.Disponible=='No'}">Pan</option>
+	    			<option :value="6"  v-bind:class="{ holi: cafe6.Disponible=='No'}">Churros</option>
+	    		</select>
+	    		<br v-if="vue3.lista!=0">
+	    		<br v-if="vue3.lista!=0">
+				<input type="button" value="AGREGAR" v-on:click="agregar(vue3.lista)" v-if="vue3.lista!=0 && vue3.pro<10">
+
+				<input type="button" value="QUITAR" v-on:click="quitar(vue3.lista)" v-if="vue3.lista!=0 && vue3.pro>=1">
+				<br v-if="vue3.pro==10">
+				<br v-if="vue3.pro==10">
+				<label v-if="vue3.pro==10">Tu carrito esta lleno.</label>
+				<br>
+				<br>
+			</form>
+		</div>
+		<div class="ped">
+			
+			<ol>
+				<transition-group name="list" tag="p">
+	                <li v-for="item in pedido" v-bind:key="item" class="list-item">
+	                    {{ item.mensaje }}
+	                </li>
+            	</transition-group>
+            </ol>
+		</div>
+	</section>
+	<footer class="app4">
+		
+		<div style="float: right;" id="gg">
+			<p ><b>Fecha y hora: </b>{{mensaje}}</p>
+		</div>
+	
+	</footer>
+</body>
+
+<script type="text/javascript" src="vue.js"></script>
+</html>
